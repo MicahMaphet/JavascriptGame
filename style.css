@@ -3,24 +3,50 @@
   margin: 0;
 }
 #window{
-  margin: 10;
-  width: 300px;
-  height: 260px;
+  width: 299px;
+  height: 259px;
   border: 1px solid black;
+  position: fixed;
 }
 #square{
   width: 20px;
   height: 20px;
-  background-color: rgb(0, 0, 0);
-  position: relative;
+  background-color: rgb(0, 0, 250);
+  position: fixed;
   top: 0px;
   left: 0px;
 }
 #wall{
-  position: relative;
-  width: 40px;
+  position: fixed;
+  width: 20px;
   height: 100px;
   background-color: rgb(0, 0, 0);
-  left: 40px;
+  left: 20px;
+  top: 0px;
+}
+#wall2{
+  position: fixed;
+  width: 20px;
+  height: 160px;
+  background-color: rgb(0, 0, 0);
+  left: 60px;
+  top: 20px;
+}
+
+#wall3{
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(0, 0, 0);
+  left: 0px;
+  top: 120px;
+}
+
+#wall4{
+  position: fixed;
+  width: 40px;
+  height: 80px;
+  background-color: rgb(0, 0, 0);
+  left: 120px;
   top: 40px;
 }

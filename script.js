@@ -1,57 +1,66 @@
-function move(x, y) {
+var x = 
+  parseInt(window.getComputedStyle(square)
+                .getPropertyValue("left"));
+var xp = x;
+var y = 
+  parseInt(window.getComputedStyle(square)
+                .getPropertyValue("top"));
+var yp = y; //this will keep track of the position for the collision
+
+function colide(a) {
   var wallwidth = 
-    parseInt(window.getComputedStyle(wall)
+    parseInt(window.getComputedStyle(a)
     .getPropertyValue("width"));
 
   var wallheight = 
-    parseInt(window.getComputedStyle(wall)
+    parseInt(window.getComputedStyle(a)
     .getPropertyValue("height"));
 
   var wallleft = 
-    parseInt(window.getComputedStyle(wall)
+    parseInt(window.getComputedStyle(a)
     .getPropertyValue("left"));
   
   var walltop = 
-    parseInt(window.getComputedStyle(wall)
+    parseInt(window.getComputedStyle(a)
     .getPropertyValue("top"));
   
-  var left = 
-    parseInt(window.getComputedStyle(square)
-    .getPropertyValue("left"));
+  if (x < wallwidth + wallleft
+     && y < walltop + wallheight
+     && y > walltop - 20
+     && x > wallleft - 20
+     && x < wallleft + wallwidth
+     || x > 280
+     || x < 0
+     || y < 0
+     || y > 240)
+  {
+  return true;
+  }
+
+  return false;
+}
+
+function move(xc, yc) {
+
+  x = x + xc;
+  y = y + yc;
   
-  var top = 
-    parseInt(window.getComputedStyle(square)
-             .getPropertyValue("top"));
-  
-  if (left >= 20&&x === -20) {
-
-    if (top > wallheight + walltop
-       ||top < wallheight - walltop
-       ||left > wallleft + wallwidth
-       ||left < wallleft + wallwidth) 
-    {
-      square.style.left = left + x + "px";
-    } 
+  if (colide(wall)
+     ||colide(wall2)
+     ||colide(wall3)
+     ||colide(wall4)) {
+    x = xp;
+    y = yp;
+  square.style.left = x + "px";
+  square.style.top = y + "px"; 
+  } else {
+  square.style.left = x + "px";
+  square.style.top = y + "px"; 
   }
   
-  if (left <= 260&&x === 20) {
-
-    if (top > wallheight + walltop
-       ||top < wallheight - walltop
-       ||left > wallleft - wallwidth
-       ||left < wallleft - wallwidth) 
-    {
-      square.style.left = left + x + "px";
-    }
-  }
-
-
-  if (top >= 20&&y === -20) {
-  square.style.top = top + y + "px";
-  }
-  if (top <= 220&&y === 20) {
-  square.style.top = top + y + "px";
-  }
+  //all the movement happens here
+  xp = x;
+  yp = y;  
 }
 
 document.addEventListener("keydown", event => {
