@@ -1,2 +1,2 @@
 # JavascriptGame
-All it is is a simple collision test thing with some form of collision that is bad.
+So fare if you make a wall in the css file, in the js file you can use a function to tell the square if it is in the wall and then it will go back to its last position.
